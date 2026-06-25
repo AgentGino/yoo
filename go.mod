@@ -1,3 +1,3 @@
-module github.com/agentgino/yo
+module github.com/agentgino/yoo
 
 go 1.22

@@ -1,17 +1,17 @@
-# yo
+# yoo
 
-`yo` is a small Go CLI for asking OpenRouter models from the terminal. It is built for quick answers, shell command generation, and model switching without touching code.
+`yoo` is a small Go CLI for asking OpenRouter models from the terminal. It is built for quick answers, shell command generation, and model switching without touching code.
 
 ## Install
 
 ```bash
-brew install AgentGino/tools/yo
+brew install AgentGino/tools/yoo
 ```
 
 Or install directly with Go:
 
 ```bash
-go install github.com/agentgino/yo/cmd/yo@latest
+go install github.com/agentgino/yoo/cmd/yoo@latest
 ```
 
 ## Configure
@@ -22,11 +22,11 @@ Set your OpenRouter key:
 export OPENROUTER_API_KEY="sk-or-..."
 ```
 
-First run creates `~/.config/yo/config.json` with default modes and model shortcuts. You can override the path with `YO_CONFIG` or `-config`.
+First run creates `~/.config/yoo/config.json` with default modes and model shortcuts. You can override the path with `YOO_CONFIG` or `-config`.
 
 ```bash
-yo -show-config
-yo -list-models
+yoo -show-config
+yoo -list-models
 ```
 
 Default config shape:
@@ -36,8 +36,8 @@ Default config shape:
   "openrouter": {
     "api_key_env": "OPENROUTER_API_KEY",
     "base_url": "https://openrouter.ai/api/v1",
-    "http_referer": "https://github.com/AgentGino/yo",
-    "x_title": "yo"
+    "http_referer": "https://github.com/AgentGino/yoo",
+    "x_title": "yoo"
   },
   "defaults": {
     "model": "openai/gpt-4o-mini",
@@ -46,7 +46,7 @@ Default config shape:
   },
   "prompts": {
     "chat": {
-      "system": "You are Yo, a direct command-line assistant. Be concise, useful, and avoid filler."
+      "system": "You are Yoo, a direct command-line assistant. Be concise, useful, and avoid filler."
     },
     "shell": {
       "system": "Return only the safest POSIX shell command that satisfies the request. No markdown, no explanation."
@@ -67,11 +67,11 @@ Default config shape:
 ## Usage
 
 ```bash
-yo what is the fastest way to gzip a folder?
-yo shell list files changed today
-yo code write a Go function that retries HTTP 429
-yo -m anthropic/claude-3.5-sonnet explain this kubectl error
-yo -mode shell -temperature 0 find large log files under /var/log
+yoo what is the fastest way to gzip a folder?
+yoo shell list files changed today
+yoo code write a Go function that retries HTTP 429
+yoo -m anthropic/claude-3.5-sonnet explain this kubectl error
+yoo -mode shell -temperature 0 find large log files under /var/log
 ```
 
 Flags:
@@ -90,8 +90,8 @@ Flags:
 
 ```bash
 go test ./...
-go build -ldflags "-s -w -X main.Version=dev" -o /tmp/yo ./cmd/yo
-/tmp/yo -version
+go build -ldflags "-s -w -X main.Version=dev" -o /tmp/yoo ./cmd/yoo
+/tmp/yoo -version
 ```
 
 ## Notes

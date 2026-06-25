@@ -1,4 +1,4 @@
-// Package cli contains Yo's command-line interface and orchestration.
+// Package cli contains Yoo's command-line interface and orchestration.
 package cli
 
 import (
@@ -9,8 +9,8 @@ import (
 	"io"
 	"strings"
 
-	"github.com/agentgino/yo/internal/config"
-	"github.com/agentgino/yo/internal/openrouter"
+	"github.com/agentgino/yoo/internal/config"
+	"github.com/agentgino/yoo/internal/openrouter"
 )
 
 // Runner executes the CLI with injectable streams for tests.
@@ -46,7 +46,7 @@ func (r Runner) Run(ctx context.Context, args []string) error {
 		return err
 	}
 	if opts.showVersion {
-		fmt.Fprintf(stdout, "yo %s\n", r.Version)
+		fmt.Fprintf(stdout, "yoo %s\n", r.Version)
 		return nil
 	}
 
@@ -114,9 +114,9 @@ func (r Runner) Run(ctx context.Context, args []string) error {
 
 func parseArgs(args []string, stderr io.Writer) (options, []string, error) {
 	opts := options{temperature: -1}
-	fs := flag.NewFlagSet("yo", flag.ContinueOnError)
+	fs := flag.NewFlagSet("yoo", flag.ContinueOnError)
 	fs.SetOutput(stderr)
-	fs.StringVar(&opts.configPath, "config", "", "config path (default: $XDG_CONFIG_HOME/yo/config.json)")
+	fs.StringVar(&opts.configPath, "config", "", "config path (default: $XDG_CONFIG_HOME/yoo/config.json)")
 	fs.StringVar(&opts.model, "model", "", "OpenRouter model id, e.g. anthropic/claude-3.5-sonnet")
 	fs.StringVar(&opts.model, "m", "", "short for -model")
 	fs.StringVar(&opts.mode, "mode", "", "prompt mode from config")
@@ -162,9 +162,9 @@ func firstNonEmpty(values ...string) string {
 }
 
 func printUsage(w io.Writer, cfg config.Config) {
-	fmt.Fprintln(w, "Usage: yo [flags] [mode] <prompt>")
+	fmt.Fprintln(w, "Usage: yoo [flags] [mode] <prompt>")
 	fmt.Fprintln(w, "Examples:")
-	fmt.Fprintln(w, "  yo shell list files changed today")
-	fmt.Fprintln(w, "  yo -m anthropic/claude-3.5-sonnet code write a Go HTTP client")
+	fmt.Fprintln(w, "  yoo shell list files changed today")
+	fmt.Fprintln(w, "  yoo -m anthropic/claude-3.5-sonnet code write a Go HTTP client")
 	fmt.Fprintf(w, "Modes: %s\n", strings.Join(cfg.ModeNames(), ", "))
 }

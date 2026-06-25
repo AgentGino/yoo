@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/agentgino/yo/internal/config"
+	"github.com/agentgino/yoo/internal/config"
 )
 
 func TestListModelsDoesNotRequireAPIKey(t *testing.T) {
@@ -51,7 +51,7 @@ func TestMissingPromptPrintsUsage(t *testing.T) {
 	if err == nil {
 		t.Fatal("expected error")
 	}
-	if !strings.Contains(stderr.String(), "Usage: yo") {
+	if !strings.Contains(stderr.String(), "Usage: yoo") {
 		t.Fatalf("expected usage, got %q", stderr.String())
 	}
 }

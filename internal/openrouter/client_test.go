@@ -34,7 +34,7 @@ func TestChatSendsOpenRouterHeadersAndReturnsContent(t *testing.T) {
 		APIKey:      "test-key",
 		BaseURL:     server.URL,
 		HTTPReferer: "https://example.test",
-		XTitle:      "yo-test",
+		XTitle:      "yoo-test",
 	})
 	if err != nil {
 		t.Fatalf("NewClient: %v", err)

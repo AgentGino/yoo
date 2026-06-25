@@ -1,4 +1,4 @@
-// Package config owns Yo's on-disk configuration schema and validation.
+// Package config owns Yoo's on-disk configuration schema and validation.
 package config
 
 import (
@@ -66,9 +66,9 @@ func (c Config) ModeNames() []string {
 	return names
 }
 
-// ConfigPath returns the XDG-style Yo config path.
+// ConfigPath returns the XDG-style Yoo config path.
 func ConfigPath() (string, error) {
-	if override := strings.TrimSpace(os.Getenv("YO_CONFIG")); override != "" {
+	if override := strings.TrimSpace(os.Getenv("YOO_CONFIG")); override != "" {
 		return override, nil
 	}
 	base := strings.TrimSpace(os.Getenv("XDG_CONFIG_HOME"))
@@ -79,7 +79,7 @@ func ConfigPath() (string, error) {
 		}
 		base = filepath.Join(home, ".config")
 	}
-	return filepath.Join(base, "yo", "config.json"), nil
+	return filepath.Join(base, "yoo", "config.json"), nil
 }
 
 // Default returns a complete config suitable for first run.
@@ -88,8 +88,8 @@ func Default() Config {
 		OpenRouter: OpenRouterConfig{
 			APIKeyEnv:   "OPENROUTER_API_KEY",
 			BaseURL:     DefaultBaseURL,
-			HTTPReferer: "https://github.com/AgentGino/yo",
-			XTitle:      "yo",
+			HTTPReferer: "https://github.com/AgentGino/yoo",
+			XTitle:      "yoo",
 		},
 		Defaults: Defaults{
 			Model:       DefaultModel,
@@ -98,7 +98,7 @@ func Default() Config {
 		},
 		Prompts: map[string]Prompt{
 			"chat": {
-				System: "You are Yo, a direct command-line assistant. Be concise, useful, and avoid filler.",
+				System: "You are Yoo, a direct command-line assistant. Be concise, useful, and avoid filler.",
 			},
 			"shell": {
 				System: "Return only the safest POSIX shell command that satisfies the request. No markdown, no explanation.",

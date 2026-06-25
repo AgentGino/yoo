@@ -21,7 +21,7 @@ type Message struct {
 	Content string `json:"content"`
 }
 
-// ChatRequest contains the model request fields Yo needs.
+// ChatRequest contains the model request fields Yoo needs.
 type ChatRequest struct {
 	Model       string    `json:"model"`
 	Messages    []Message `json:"messages"`
